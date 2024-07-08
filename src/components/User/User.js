@@ -2,12 +2,11 @@ import { Grid } from "@mui/material";
 import { LoginContext } from "hooks/context/LoginInfoContext";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
-import { useNavigate } from "react-router";
 import UserTable from "./UserTable";
 
 const User = () => {
   const { loginData } = useContext(LoginContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   if (loginData.role == "ADMIN" || loginData.role == "TEAM_LEAD") {
     return (
       <>

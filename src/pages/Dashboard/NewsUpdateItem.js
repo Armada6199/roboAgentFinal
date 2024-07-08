@@ -1,6 +1,6 @@
 import { Link as RouterLink } from "react-router-dom";
-import { Avatar, Typography, Link } from "@mui/material";
-import { Box, styled } from "@mui/material";
+import { Avatar, Typography, Link , Box, styled } from "@mui/material";
+
 import { useTranslation } from "react-i18next";
 
 const BoxContainerStyle = styled(Box)(({ theme }) => ({

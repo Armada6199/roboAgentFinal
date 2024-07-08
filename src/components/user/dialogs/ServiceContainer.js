@@ -1,13 +1,13 @@
-import { DragOverlay, useDroppable, defaultDropAnimation } from "@dnd-kit/core";
+import { useDroppable } from "@dnd-kit/core";
 import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { Grid, Typography } from "@mui/material";
 import SortableTaskItem from "components/dnd/SortableTaskItem";
+import { useTranslation } from "react-i18next";
 import { glassMorphisimStyle } from "styles/styles";
 import DraggableServiceItem from "./DraggableServiceItem";
-import { useTranslation } from "react-i18next";
 
 function ServiceContainer({ id, title, authorities }) {
   const { setNodeRef } = useDroppable({

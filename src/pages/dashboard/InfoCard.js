@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import { styled } from "@mui/material";
+import { Box, Typography , styled } from "@mui/material";
+
 
 const InfoCard = ({ colorId, icon, amount, title }) => {
   const CardStyle = styled(Box)(({ theme }) => ({

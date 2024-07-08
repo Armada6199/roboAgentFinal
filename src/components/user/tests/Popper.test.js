@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@mui/material";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { AlertContext } from "hooks/context/AlertContext";
 import { lightTheme } from "styles/theme";
 import RolesPopper from "../poppers/RolesPopper";

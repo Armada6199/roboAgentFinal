@@ -1,5 +1,5 @@
-import { CardHeader } from "@mui/material";
-import { styled } from "@mui/material";
+import { CardHeader , styled } from "@mui/material";
+
 import { useTranslation } from "react-i18next";
 
 const CardHeaderStyle = styled(CardHeader)(({ theme }) => ({

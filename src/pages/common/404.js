@@ -2,17 +2,16 @@ import { Button, Typography, styled } from "@mui/material";
 import { Box } from "@mui/system";
 import { Helmet } from "react-helmet";
 // import Lottie from "react-lottie";
-import animated404 from "assets/lottie/Animation - 1715605056269 (3).json";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: animated404,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
-};
+// const defaultOptions = {
+//   loop: true,
+//   autoplay: true,
+//   animationData: animated404,
+//   rendererSettings: {
+//     preserveAspectRatio: "xMidYMid slice",
+//   },
+// };
 // style
 const BoxStyle = styled(Box)(({ theme }) => ({
   maxWidth: theme.breakpoints.values.sm,

@@ -1,4 +1,4 @@
-import { getByLabelText, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Loader from "./Loader";
 
 describe("Loader component", () => {

@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { generalSuccessReducer } = require("hooks/reducers/store");
 const { failureHitHandle, successHitHandle } = require("utils/HitHandiling");
 

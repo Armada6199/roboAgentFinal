@@ -24,7 +24,7 @@ const ServicesListItem = ({
   };
   console.log("service ===>", service);
   //uncomment this line
-  const [update, setUpdate] = useState(false);
+  // const [update, setUpdate] = useState(false);
   // const isEligiableService =
   //   queryCenterSignup &&
   //   (!eligiableServices[service.enName] || currentUserData.role != "MEMBER");

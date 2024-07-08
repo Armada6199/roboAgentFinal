@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Grid } from "@mui/material";
 import { AlertContext } from "hooks/context/AlertContext";
 import { useContext, useEffect, useRef, useState } from "react";
