@@ -1,4 +1,4 @@
-import { generalSuccessReducer } from "hooks/reducers/store";
+import { generalSuccessReducer } from 'hooks/reducers/store';
 import {
   JWTFalureHitHandle,
   handleChangePassCodeActions,
@@ -7,24 +7,23 @@ import {
   handleGetAnswerFailure,
   handleOTPCodeActions,
   handleUserCodeActions,
-} from "./response_handlers";
-
+} from './response_handlers';
 export function successHitHandle(result, utils) {
   const { code } = result.data.roboAgentRs.header.responseStatus;
-  const { codeLetters, codeNumbers } = handleExtractCodeInfo(code, "string");
-  console.log("Code Letter======>", codeLetters);
+  const { codeLetters, codeNumbers } = handleExtractCodeInfo(code, 'string');
+  console.log('Code Letter======>', codeLetters);
   switch (codeLetters) {
-    case "":
+    case '':
       return generalSuccessReducer(result, utils);
-    case "USR":
+    case 'USR':
       return handleUserCodeActions(result, codeNumbers, utils);
-    case "OTP":
+    case 'OTP':
       return handleOTPCodeActions(result, codeNumbers, utils);
-    case "EML":
+    case 'EML':
       return handleEmailCodeActions(result, codeNumbers, utils);
-    case "CPW":
+    case 'CPW':
       return handleChangePassCodeActions(result, codeNumbers, utils);
-    case "GAM":
+    case 'GAM':
       return handleGetAnswerFailure(result, codeNumbers);
     default:
       return handleGeneralErrorCodeActions(result, codeNumbers, utils);
@@ -36,25 +35,25 @@ export function failureHitHandle(result, utils) {
     const { code } = result.response.data.roboAgentRs.header.responseStatus;
     const { codeLetters, codeNumbers } = handleExtractCodeInfo(code);
     switch (codeLetters) {
-      case "JWT":
+      case 'JWT':
         return JWTFalureHitHandle(result, codeNumbers);
       default:
         return handleGeneralErrorCodeActions(result, codeNumbers, utils);
     }
   } else {
-    console.log("result ===> ", result?.message);
-    setAlert({ alertType: "error", alertMsg: result?.message });
+    console.log('result ===> ', result?.message);
+    setAlert({ alertType: 'error', alertMsg: result?.message });
   }
 }
 export function handleExtractCodeInfo(code = 0) {
   return {
     codeLetters: code
-      ?.split("")
+      ?.split('')
       ?.filter((l) => isNaN(Number.parseInt(l)))
-      ?.join(""),
+      ?.join(''),
     codeNumbers: code
-      ?.split("")
+      ?.split('')
       ?.filter((l) => !isNaN(Number.parseInt(l)))
-      ?.join(""),
+      ?.join(''),
   };
 }

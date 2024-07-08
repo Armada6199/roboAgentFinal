@@ -9,7 +9,6 @@
 ::-webkit-scrollbar-thumb {
   background: rgb(0, 171, 85);
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: purple;
