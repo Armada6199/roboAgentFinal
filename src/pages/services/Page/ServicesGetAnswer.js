@@ -2,18 +2,18 @@
 import { Services } from '../schema/ServicesSchema';
 
 import { Grid, TextField, Typography } from '@mui/material';
-import i18next from 'i18next';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useNavigate, useParams } from 'react-router';
 import GetAnswerToolbar from 'components/services/GetAnswerToolbar';
 import ServicesSidebar from 'components/services/ServicesSidebar';
 import { AlertContext } from 'hooks/context/AlertContext';
+import i18next from 'i18next';
 import TasksItem from 'pages/dashboard/TasksItem';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router';
 import { numbersOnly } from 'utils/DefualtValidators';
 import { handleGetResponse } from 'utils/api/answer/service';
 import { handleFetchCurrentUser } from 'utils/users/users';
-import { useTranslation } from 'react-i18next';
 
 const ServicesGetAnswer = ({}) => {
   let { servicename = 'Visas' } = useParams();
@@ -32,7 +32,9 @@ const ServicesGetAnswer = ({}) => {
     currService.options.map((o) => (options[o['id']] = false));
     return options;
   });
-
+  useEffect(() => {
+    setOptions(currService.options.map((o) => (options[o['id']] = false)));
+  }, [currService]);
   // form submit
   const handelCheckValue = (id, status) => {
     options[id] = status;
@@ -92,8 +94,10 @@ const ServicesGetAnswer = ({}) => {
           onSubmit={handleSubmit(async (data) => {
             if (isEligiable.current) {
               setLoading(true);
+              setAnswer('');
               setAlert({
                 alertType: 'info',
+                sleep: 5000000,
                 alertMsg: 'Generating Ticket Answer',
               });
               await handleGetResponse({
@@ -105,7 +109,6 @@ const ServicesGetAnswer = ({}) => {
                 setAlert,
               });
               setLoading(false);
-              handleCloseAlert();
             } else {
               setAlert({
                 alertType: 'error',

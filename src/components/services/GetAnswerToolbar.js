@@ -1,4 +1,4 @@
-import { Button, Grid } from "@mui/material";
+import { Button, Grid } from '@mui/material';
 function GetAnswerToolbar({ loading, searchLabel, backLabel }) {
   return (
     <Grid container item spacing={4} marginBottom={4}>
@@ -8,8 +8,8 @@ function GetAnswerToolbar({ loading, searchLabel, backLabel }) {
           variant="contained"
           color="error"
           style={{
-            width: "100%",
-            color: "white",
+            width: '100%',
+            color: 'white',
           }}
           href="/dash/services"
         >
@@ -17,13 +17,7 @@ function GetAnswerToolbar({ loading, searchLabel, backLabel }) {
         </Button>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Button
-          fullWidth
-          variant="contained"
-          type="submit"
-          disabled={loading}
-          disableElevation
-        >
+        <Button fullWidth variant="contained" type="submit" disabled={loading} disableElevation>
           {searchLabel}
         </Button>
       </Grid>
